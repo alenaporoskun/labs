@@ -1,0 +1,10 @@
+
+version: '3'
+services:
+  py-lab-pbd:
+    image: python:3.11
+    container_name: py-lab-pbd
+    working_dir: /app
+    volumes:
+      - .:/app
+

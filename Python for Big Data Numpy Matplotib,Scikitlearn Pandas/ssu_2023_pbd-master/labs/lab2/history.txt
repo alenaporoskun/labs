@@ -1,0 +1,52 @@
+# Практикум 2. Практичні навички роботи з git, pull requests. Обмін кодом
+# Групова розробка та обмін кодом між групами
+
+# ! Перед початком цього етапу: перевіримо, що знаходимося в корні свого репозиторію.
+pwd
+cd lab
+cd ssu_2023_pbd
+
+# Підтягнемо оновлення з основного репозиторію (UPSTREAM)
+git remote add upstream https://github.com/wellic/ssu_2023_pbd
+git fetch -pt upstream
+git checkout master
+git rebase upstream/master
+git push -fu origin master:master
+
+# Встановимо git hooks
+# ! Перед початком цього етапу: перевірити, що Ви знаходитесь в корні свого репозиторію.
+pwd
+cd utils/git
+bash setup_hooks.sh
+cd ../..
+
+# Створимо гілки лабораторної работи
+# Створимо гілку lab2 з гілки lab1 або master
+
+# * ви ще не мержили PR гілки lab1 (pull request) в мастер
+git checkout -b lab2 lab1
+
+# * ви вже змержили PR гілки lab1 (pull request) з мастером
+# git checkout -b lab2 master
+
+# Виконання лабораторної работи
+# ! Перед початком цього етапу: перевіримо, що Ви знаходитесь в корні свого репозиторію.
+# * в директорії labs зробити директорію lab2 та створити файл history.txt,
+#   в якому видно, як ви робили цю роботу
+cd labs
+mkdir lab2
+cd lab2
+history > history.txt
+
+# ... відредагуємо  файл та залишимо рядки, які поясняють, що ми зробили
+# для цього пишемо команду mc та відкриваємо файл history.txt 
+# для редагування та зберігаємо його
+
+# наступні кроки
+# відправити результат у репозиторій
+# git add .......
+# git commit -am "practice 2 Poroskun Olena"
+# git push -u origin lab2:lab2
+
+# кінець 2 практикуму
+ 
