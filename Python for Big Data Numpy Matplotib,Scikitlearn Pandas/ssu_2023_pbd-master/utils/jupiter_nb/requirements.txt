@@ -1,0 +1,9 @@
+numpy
+pandas
+xlrd
+matplotlib
+Pillow
+
+jupyter
+jupyter_contrib_nbextensions
+notebook

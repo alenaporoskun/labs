@@ -1,0 +1,12 @@
+FROM jupyter/minimal-notebook
+
+ENV JUPYTER_ENABLE_LAB=yes
+CMD ["start-notebook.sh", "--NotebookApp.token=''", "--NotebookApp.password=''"]
+
+WORKDIR /app
+
+RUN pip install --upgrade pip
+COPY requirements.txt /app
+RUN pip install -r requirements.txt
+
+

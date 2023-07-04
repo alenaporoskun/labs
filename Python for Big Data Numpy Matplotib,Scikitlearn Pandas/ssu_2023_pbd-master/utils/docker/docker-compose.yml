@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+
+  lab-py:
+    image: "python3.8"
+    container_name: lab-py
+    working_dir: /app
+    volumes:
+      - ${PWD}:/app

@@ -1,0 +1,32 @@
+gh repo clone <your_repo>/ssu_2023_pbd
+#git clone <your_repo>/ssu_2023_pbd
+#git remote add upstream https://github.com/wellic/ssu_2023_pbd.git
+git remote -v 
+git status
+git branch -ra
+git branch --help
+git checkout lab1
+git checkout master
+git fetch -pt origin
+git fetch -pt upstream
+gitk --all
+
+# Оновлення свого мастеру
+git checkout master
+git remote -v
+git fetch -pt upstream
+git rebase upstream/master
+git checkout lab1
+git rebase master
+git push -u origin lab1:lab1
+git push -fu origin lab1:lab1
+
+# зробити нову гілку
+git checkout <you_branch>
+git checkout -b <new_branch>
+....
+git status
+git add
+git add -A
+git commit -m "your text"
+git push -u origin new_branch:new_branch

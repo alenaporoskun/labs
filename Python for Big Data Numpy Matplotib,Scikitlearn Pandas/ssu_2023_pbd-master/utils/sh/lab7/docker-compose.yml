@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  study_bd_jupyter:
+    image: study_bd_jupyter
+    build:
+      context: .
+      dockerfile: Dockerfile.study_bd_jupyter
+    container_name: study_bd_jupyter
+    ports:
+      - 8888:8888
+    volumes:
+      - .:/app
+

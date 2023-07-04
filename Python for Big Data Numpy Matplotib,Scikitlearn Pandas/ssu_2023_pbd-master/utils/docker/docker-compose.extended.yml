@@ -1,0 +1,56 @@
+version: '3'
+
+services:
+
+  lab-py:
+    image: "lab-py"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: lab-python
+    working_dir: /app
+    environment:
+      - VIRTUAL_HOST=lab-py.docker
+    depends_on:
+      - http-proxy
+      - lab-aws
+      - lab-db
+    volumes:
+      - ${PWD}:/app
+
+  db:
+    container_name: lab-db
+    image: mysql:5.7
+
+  lab-aws:
+    image: localstack/localstack:latest
+    container_name: lab-aws
+    environment:
+      - VIRTUAL_HOST=lab-aws.docker
+      - VIRTUAL_PORT=4566
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    # Details:
+    # - https://github.com/localstack/localstack/blob/master/docker-compose.yml
+    # - https://docs.localstack.cloud/localstack/configuration/
+    healthcheck:
+      test: ["CMD", "curl", "http://localhost:4566/health?reload"]
+      interval: 10s
+      timeout: 5s
+    ports:
+      - "4566:4566"            # LocalStack Gateway
+      - "4510-4559:4510-4559"  # external services port range
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    depends_on:
+      - http-proxy
+
+  http-proxy:
+    image: nginxproxy/nginx-proxy
+    container_name: http-proxy
+    privileged: true
+    environment:
+      - CONTAINER_NAME=http-proxy
+    ports:
+      - 80:80
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
