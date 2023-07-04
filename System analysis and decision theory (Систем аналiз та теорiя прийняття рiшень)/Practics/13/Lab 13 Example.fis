@@ -1,0 +1,51 @@
+[System]
+Name='Lab 13 Example'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='x1'
+Range=[-7 3]
+NumMFs=3
+MF1='Низький':'trimf',[-12 -7 -2]
+MF2='Середній':'trimf',[-7 -2 3]
+MF3='Високий':'trimf',[-2 3 8]
+
+[Input2]
+Name='x2'
+Range=[-4.4 1.7]
+NumMFs=5
+MF1='Низький':'gaussmf',[0.6478 -4.4]
+MF2='НижчеСереднього':'gaussmf',[0.6478 -2.875]
+MF3='Середній':'gaussmf',[0.6478 -1.35]
+MF4='ВищеСереднього':'gaussmf',[0.6478 0.175]
+MF5='Високий':'gaussmf',[0.6478 1.7]
+
+[Output1]
+Name='y'
+Range=[-50 50]
+NumMFs=5
+MF1='Низький':'trimf',[-75 -50 -25]
+MF2='НижчеСереднього':'trimf',[-50 -25 0]
+MF3='Середній':'trimf',[-25 0 25]
+MF4='ВищеСереднього':'trimf',[0 25 50]
+MF5='Високий':'trimf',[25 50 75]
+
+[Rules]
+2 0, 3 (1) : 1
+1 1, 5 (1) : 1
+1 5, 5 (1) : 1
+3 5, 4 (1) : 1
+3 1, 4 (1) : 1
+3 3, 3 (1) : 1
+1 3, 1 (1) : 1
+3 4, 3 (1) : 1
+3 2, 3 (1) : 1

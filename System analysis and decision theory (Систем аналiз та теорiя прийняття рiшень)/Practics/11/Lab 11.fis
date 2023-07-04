@@ -1,0 +1,56 @@
+[System]
+Name='Lab 11'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=8
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='відвідування__лекцій'
+Range=[0 100]
+NumMFs=3
+MF1='низьке':'trapmf',[0 10 30 50]
+MF2='середнє':'trapmf',[30 50 70 80]
+MF3='високе':'trapmf',[70 90 100 100]
+
+[Input2]
+Name='прочитано__книг'
+Range=[0 10]
+NumMFs=4
+MF1='не__читалися':'trimf',[0 0 1]
+MF2='трохи':'trimf',[0 2 4]
+MF3='досить':'trimf',[1 4 9]
+MF4='багато':'trimf',[5 10 10]
+
+[Input3]
+Name='здано__лабораторних'
+Range=[0 8]
+NumMFs=3
+MF1='кілька':'trimf',[0 2 4]
+MF2='майже__всі':'trimf',[2 5 8]
+MF3='всі':'trimf',[6 8 8]
+
+[Output1]
+Name='рейтинг'
+Range=[0 10]
+NumMFs=4
+MF1='низький':'trapmf',[0 0 2 3]
+MF2='середній':'trapmf',[1 3 4 6]
+MF3='високий':'trapmf',[5 6 7 9]
+MF4='дуже__високий':'trapmf',[8 9 10 10]
+
+[Rules]
+1 1 1, 1 (1) : 1
+2 2 2, 2 (1) : 1
+0 3 3, 3 (1) : 1
+3 4 3, 4 (1) : 1
+1 2 1, 1 (1) : 2
+2 4 2, 2 (1) : 2
+2 0 3, 3 (1) : 1
+3 0 3, 4 (1) : 1
