@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+set -e
+#set -x
+
+CLEAN_VENV=${1:-0}
+
+PYTHON_VER="python3.8"
+PIP="pip3"
+VENV=venv
+NB_DIR="notebooks"
+
+if [ "$CLEAN_VENV" = 1 -a -d "$VENV" ]; then
+#    deactivate "$VENV"
+    rm -rf "$VENV"
+fi
+
+virtualenv "$VENV" --python="$PYTHON_VER"
+. "$VENV/bin/activate"
+
+"$PIP" install -U pip
+"$PIP" install -r requirements.txt
+
+jupyter contrib nbextension install --user
+jupyter nbextensions_configurator enable --user
+
+[ -d "$NB_DIR" ] || mkdir -p "$NB_DIR"
+cd "$NB_DIR"
+
+jupyter notebook
