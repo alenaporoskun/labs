@@ -1,0 +1,102 @@
+/home/alena/lab/ssu_2023_pbd/labs/lab6/venv/bin/python3 /home/alena/lab/ssu_2023_pbd/labs/lab6/lab6.py
+
+======================
+ Лабораторна 6 Pandas
+======================
+orders = pd.read_csv('data/orders.csv')
+- orders:
+           id  order_date ship_mode customer_id     sales
+0     100006  2014-09-07  Standard    DK-13375   377.970
+1     100090  2014-07-08  Standard    EB-13705   699.192
+2     100293  2014-03-14  Standard    NF-18475    91.056
+3     100328  2014-01-28  Standard    JC-15340     3.928
+4     100363  2014-04-08  Standard    JM-15655    21.376
+...      ...         ...       ...         ...       ...
+5004  168802  2017-11-03  Standard    JO-15145    18.368
+5005  169320  2017-07-23    Second    LH-16900   171.430
+5006  169488  2017-09-07     First    AA-10375    56.860
+5007  169502  2017-08-28  Standard    MG-17650   113.410
+5008  169551  2017-07-07     First    RL-19615  1344.838
+
+[5009 rows x 5 columns]
+
+customers = pd.read_csv('data/customers.csv')
+- customers:
+                        name      segment           state               city
+id
+CG-12520        Claire Gute     Consumer        Kentucky          Henderson
+DV-13045    Darrin Van Huff    Corporate      California        Los Angeles
+SO-20335     Sean O'Donnell     Consumer         Florida    Fort Lauderdale
+BH-11710    Brosina Hoffman     Consumer      California        Los Angeles
+AA-10480       Andrew Allen     Consumer  North Carolina            Concord
+...                     ...          ...             ...                ...
+CJ-11875       Carl Jackson    Corporate    Pennsylvania       Philadelphia
+RS-19870         Roy Skaria  Home Office            Iowa         Burlington
+SC-20845         Sung Chung     Consumer        Illinois  Arlington Heights
+RE-19405    Ricardo Emerson     Consumer            Ohio               Kent
+SM-20905  Susan MacKendrick     Consumer            Ohio             Newark
+
+[793 rows x 4 columns]
+
+
+===================================================================================================================================================
+ Task
+ Використовуючи дані та код з лекції знайти
+ перші 4 міста, які найбільш збиткові у 2017 році для даних:
+ * orders.csv,
+ * customers.csv
+===================================================================================================================================================
+# Для початку відфільтруємо замовлення з 2017 року:
+orders_2017 = orders.query("order_date >= '2017-01-01' & order_date <= '2017-12-31'")
+- orders_2017.head():
+           id  order_date ship_mode customer_id     sales
+2794  100013  2017-11-06  Standard    ZC-21910    29.690
+2795  100055  2017-05-28  Standard    MD-17860   152.590
+2796  100097  2017-11-26    Second    MN-17935  1115.250
+2797  100111  2017-09-20  Standard    SV-20365  7359.918
+2798  100160  2017-09-07  Standard    CB-12025    49.688
+
+# Місто – це атрибут користувачів, а не замовлень. Тобто, додамо інформацію про користувачів:
+with_customers_2017 = pd.merge(customers, orders_2017, how='inner', left_index=True,
+                                             right_on='customer_id')
+- with_customers_2017.head(3):
+                  name    segment       state  ... ship_mode  customer_id    sales
+4088      Claire Gute   Consumer    Kentucky  ...     First     CG-12520   18.160
+3318  Darrin Van Huff  Corporate  California  ...  Standard     DV-13045   19.520
+3589  Darrin Van Huff  Corporate  California  ...  Same Day     DV-13045  188.552
+
+[3 rows x 9 columns]
+
+# Сгрупуємо датафрейм по містах, і порахуємо виторг:
+grouped_2017 = with_customers_2017.groupby('city')['sales'].sum()
+- grouped_2017.head():
+ city
+Akron           1573.860
+Albuquerque     1577.784
+Allen            606.232
+Amarillo         372.060
+Apple Valley     753.661
+Name: sales, dtype: float64
+
+# Відсортуємо за збільшенням продажу та залишимо TOP-4:
+top4 = grouped_2017.sort_values(ascending=True).head(4)
+- top4:
+ city
+Riverside       5.760
+Lindenhurst     9.248
+Hesperia        9.856
+Lafayette      14.730
+Name: sales, dtype: float64
+
+Додамо до списку назви міст:
+answer = []
+for i in range(4):
+    answer.append(top4.index[i])
+- answer:
+ ['Riverside', 'Lindenhurst', 'Hesperia', 'Lafayette']
+
+====================================================================
+ Отже, ми знайшли перші 4 міста, які найбільш збиткові у 2017 році.
+====================================================================
+
+Process finished with exit code 0

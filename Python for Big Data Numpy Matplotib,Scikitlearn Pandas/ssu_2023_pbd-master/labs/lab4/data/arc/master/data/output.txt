@@ -1,0 +1,47 @@
+                  /home/alena/lab/ssu_2023_pbd/labs/lab4/venv/bin/python3 /home/alena/lab/ssu_2023_pbd/labs/lab4/lab4.py
+Лабораторна робота 4. Робота з отриманими даними. Зчитування, конвертація, зберігання
+
+==================
+ 1. Check version
+==================
+3.10.6 (main, Nov 14 2022, 16:10:14) [GCC 11.3.0]
+
+===============
+ 2. Unpack zip
+===============
+Current workdir: /home/alena/lab/ssu_2023_pbd/labs/lab4
+
+==================
+ 3. Read csv file
+==================
+data_list: [['year', 'price'], ['2001', '100'], ['2002', '150'], ['2003', '200']]
+data_list year: 2001
+data_dict: [{'year': '2001', 'price': '100'}, {'year': '2002', 'price': '150'}, {'year': '2003', 'price': '200'}]
+data_dict year: 2002
+
+=================================
+ 4. Convert csv to json and xlsx
+=================================
+json: [
+  {
+    "year": "2001",
+    "price": "100"
+  },
+  {
+    "year": "2002",
+    "price": "150"
+  },
+  {
+    "year": "2003",
+    "price": "200"
+  }
+]
+json filename: ./data/arc/master/data/test.json
+
+=========================
+ 5. Convert json to xlsx
+=========================
+xls1: ./data/arc/master/data/test_lib.xlsx
+xls2: ./data/arc/master/data/test_pandas.xlsx
+
+Process finished with exit code 0

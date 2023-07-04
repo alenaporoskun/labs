@@ -1,0 +1,69 @@
+
+  705  cd lab
+  706  cd ssu_2023_pbd
+  707  git branch
+  708  git checkout -b lab5
+  709  cd labs
+  710  mkdir lab5
+  711  cd lab5
+  712  virtualenv venv -p python3 
+  713  mc
+  714  virtualenv venv -p python3 
+  715  mc
+  716  cd ..
+  717  mc
+  718  ls
+  719  mkdir lab5
+  720  cd lab5
+  721  virtualenv venv -p python3 
+  722  git status
+  723  git branch
+  724  git add -A
+  725  git commit -am "lab5_not_finished"
+  726  git push -u origin lab5:lab5
+  727  history
+  728  cd ..
+  729  git checkout master
+  730  mc
+  731  git checkout lab5
+  732  cd lab
+  733  cd ssu_2023_pbd
+  734  git branch
+  735  git checkout master
+  736  git branch
+  737  git fetch -pt upstream
+  738  git fetch -pt origin
+  739  git rebase origin/master 
+  740  git checkout lab5
+  741  git branch
+  742  ls
+  743  cd labs
+  744  ls
+  745  cd lab5
+  746  ls
+  747  mc
+  748  ls
+  749  ./00_setup.sh 
+  750  mc
+  751  cd ..
+  752  cd lab5_new
+  753  mc
+  754  cd ..
+  755  mc
+  756  cd lab5
+  757  git status
+  758  git branch
+  759  git add -A
+  760  git commit -am "lab5 not finished vers2"
+  761  mc
+  762  git push -u origin lab5:lab5
+  763  git status
+  764  git branch
+  765  git add -A
+  766  git commit -am "lab5 finished"
+  767  git push -u origin lab5:lab5
+  768  git status
+  769  mc
+  770  git status
+  771  history
+  772  history > history.txt
