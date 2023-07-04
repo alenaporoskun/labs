@@ -4,3 +4,4 @@
 * SQL
 * MATLAB
 * Exсel
+* С++
