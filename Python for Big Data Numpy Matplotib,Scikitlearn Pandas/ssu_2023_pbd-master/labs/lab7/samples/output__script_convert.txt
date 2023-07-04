@@ -1,0 +1,256 @@
+/home/alena/lab/ssu_2023_pbd/labs/lab7/venv/bin/python3 /home/alena/lab/ssu_2023_pbd/labs/lab7/samples/script_convert.py
+The conversion script is running...
+
+==================
+ 1. Check version
+==================
+3.10.6 (main, Mar 10 2023, 10:55:28) [GCC 11.3.0]
+
+===============
+ 2. Unpack zip
+===============
+Current workdir: /home/alena/lab/ssu_2023_pbd/labs/lab7/samples
+
+======================================================
+ 3. Create folder 'src' and copy the csv files to it.
+======================================================
+Copy the csv files...
+
+# 1
+name of file:  wti-year.csv
+path_join:  ../data/oil-prices-master/data/wti-year.csv
+
+# 2
+name of file:  wti-daily.csv
+path_join:  ../data/oil-prices-master/data/wti-daily.csv
+
+# 3
+name of file:  wti-weekly.csv
+path_join:  ../data/oil-prices-master/data/wti-weekly.csv
+
+# 4
+name of file:  brent-daily.csv
+path_join:  ../data/oil-prices-master/data/brent-daily.csv
+
+# 5
+name of file:  brent-year.csv
+path_join:  ../data/oil-prices-master/data/brent-year.csv
+
+# 6
+name of file:  wti-monthly.csv
+path_join:  ../data/oil-prices-master/data/wti-monthly.csv
+
+# 7
+name of file:  brent-monthly.csv
+path_join:  ../data/oil-prices-master/data/brent-monthly.csv
+
+# 8
+name of file:  brent-weekly.csv
+path_join:  ../data/oil-prices-master/data/brent-weekly.csv
+
+All files from folder '../data/oil-prices-master/data' to folder '../src/oil-prices' are copied.
+
+# 1
+name of file:  population.csv
+path_join:  ../data/population-master/data/population.csv
+
+All files from folder '../data/population-master/data/' to folder '../src/population' are copied.
+
+# 1
+name of file:  ppp-gdp.csv
+path_join:  ../data/ppp-master/data/ppp-gdp.csv
+
+All files from folder '../data/ppp-master/data/' to folder '../src/ppp' are copied.
+
+The process of copying files is complete.
+
+
+==================
+ 4. Read csv file
+==================
+os.listdir('../src/'):  ['oil-prices', 'population', 'ppp']
+
+# 1
+name of file:  wti-year.csv
+path_join:  ../src/oil-prices/wti-year.csv
+
+data_list[0]: ['Date', 'Price']
+data_list[1]: ['1986-06-30', '15.05']
+
+data_dict[0]: {'Date': '1986-06-30', 'Price': '15.05'}
+data_dict[1]: {'Date': '1987-06-30', 'Price': '19.2'}
+
+# 2
+name of file:  wti-daily.csv
+path_join:  ../src/oil-prices/wti-daily.csv
+
+data_list[0]: ['Date', 'Price']
+data_list[1]: ['1986-01-02', '25.56']
+
+data_dict[0]: {'Date': '1986-01-02', 'Price': '25.56'}
+data_dict[1]: {'Date': '1986-01-03', 'Price': '26'}
+
+# 3
+name of file:  wti-weekly.csv
+path_join:  ../src/oil-prices/wti-weekly.csv
+
+data_list[0]: ['Date', 'Price']
+data_list[1]: ['1986-01-03', '25.78']
+
+data_dict[0]: {'Date': '1986-01-03', 'Price': '25.78'}
+data_dict[1]: {'Date': '1986-01-10', 'Price': '25.99'}
+
+# 4
+name of file:  brent-daily.csv
+path_join:  ../src/oil-prices/brent-daily.csv
+
+data_list[0]: ['Date', 'Price']
+data_list[1]: ['1987-05-20', '18.63']
+
+data_dict[0]: {'Date': '1987-05-20', 'Price': '18.63'}
+data_dict[1]: {'Date': '1987-05-21', 'Price': '18.45'}
+
+# 5
+name of file:  brent-year.csv
+path_join:  ../src/oil-prices/brent-year.csv
+
+data_list[0]: ['Date', 'Price']
+data_list[1]: ['1987-06-30', '18.53']
+
+data_dict[0]: {'Date': '1987-06-30', 'Price': '18.53'}
+data_dict[1]: {'Date': '1988-06-30', 'Price': '14.91'}
+
+# 6
+name of file:  wti-monthly.csv
+path_join:  ../src/oil-prices/wti-monthly.csv
+
+data_list[0]: ['Date', 'Price']
+data_list[1]: ['1986-01-15', '22.93']
+
+data_dict[0]: {'Date': '1986-01-15', 'Price': '22.93'}
+data_dict[1]: {'Date': '1986-02-15', 'Price': '15.46'}
+
+# 7
+name of file:  brent-monthly.csv
+path_join:  ../src/oil-prices/brent-monthly.csv
+
+data_list[0]: ['Date', 'Price']
+data_list[1]: ['1987-05-15', '18.58']
+
+data_dict[0]: {'Date': '1987-05-15', 'Price': '18.58'}
+data_dict[1]: {'Date': '1987-06-15', 'Price': '18.86'}
+
+# 8
+name of file:  brent-weekly.csv
+path_join:  ../src/oil-prices/brent-weekly.csv
+
+data_list[0]: ['Date', 'Price']
+data_list[1]: ['1987-05-15', '18.58']
+
+data_dict[0]: {'Date': '1987-05-15', 'Price': '18.58'}
+data_dict[1]: {'Date': '1987-05-22', 'Price': '18.54'}
+
+Reading files from folder '../src/oil-prices' in two formats is complete.
+
+# 1
+name of file:  population.csv
+path_join:  ../src/population/population.csv
+
+data_list[0]: ['Country Name', 'Country Code', 'Year', 'Value']
+data_list[1]: ['Arab World', 'ARB', '1960', '92197753']
+
+data_dict[0]: {'Country Name': 'Arab World', 'Country Code': 'ARB', 'Year': '1960', 'Value': '92197753'}
+data_dict[1]: {'Country Name': 'Arab World', 'Country Code': 'ARB', 'Year': '1961', 'Value': '94724510'}
+
+Reading files from folder '../src/population' in two formats is complete.
+
+# 1
+name of file:  ppp-gdp.csv
+path_join:  ../src/ppp/ppp-gdp.csv
+
+data_list[0]: ['Country', 'Country ID', 'Year', 'PPP']
+data_list[1]: ['Lebanon', 'LB', '2021', '3410.35691262094']
+
+data_dict[0]: {'Country': 'Lebanon', 'Country ID': 'LB', 'Year': '2021', 'PPP': '3410.35691262094'}
+data_dict[1]: {'Country': 'Lebanon', 'Country ID': 'LB', 'Year': '2020', 'PPP': '1420.82393396942'}
+
+Reading files from folder '../src/ppp' in two formats is complete.
+
+The process of reading files is complete.
+
+
+=================================
+ 5. Convert csv to json and xlsx
+=================================
+os.listdir('../src/'):  ['oil-prices', 'population', 'ppp']
+
+# 1
+name of file:  wti-year.csv
+path_join:     ../src/oil-prices/wti-year.csv
+json filename: ../src/oil-prices/wti-year.json
+xlsx filename: ../src/oil-prices/wti-year_pandas.xlsx
+
+# 2
+name of file:  wti-daily.csv
+path_join:     ../src/oil-prices/wti-daily.csv
+json filename: ../src/oil-prices/wti-daily.json
+xlsx filename: ../src/oil-prices/wti-daily_pandas.xlsx
+
+# 3
+name of file:  wti-weekly.csv
+path_join:     ../src/oil-prices/wti-weekly.csv
+json filename: ../src/oil-prices/wti-weekly.json
+xlsx filename: ../src/oil-prices/wti-weekly_pandas.xlsx
+
+# 4
+name of file:  brent-daily.csv
+path_join:     ../src/oil-prices/brent-daily.csv
+json filename: ../src/oil-prices/brent-daily.json
+xlsx filename: ../src/oil-prices/brent-daily_pandas.xlsx
+
+# 5
+name of file:  brent-year.csv
+path_join:     ../src/oil-prices/brent-year.csv
+json filename: ../src/oil-prices/brent-year.json
+xlsx filename: ../src/oil-prices/brent-year_pandas.xlsx
+
+# 6
+name of file:  wti-monthly.csv
+path_join:     ../src/oil-prices/wti-monthly.csv
+json filename: ../src/oil-prices/wti-monthly.json
+xlsx filename: ../src/oil-prices/wti-monthly_pandas.xlsx
+
+# 7
+name of file:  brent-monthly.csv
+path_join:     ../src/oil-prices/brent-monthly.csv
+json filename: ../src/oil-prices/brent-monthly.json
+xlsx filename: ../src/oil-prices/brent-monthly_pandas.xlsx
+
+# 8
+name of file:  brent-weekly.csv
+path_join:     ../src/oil-prices/brent-weekly.csv
+json filename: ../src/oil-prices/brent-weekly.json
+xlsx filename: ../src/oil-prices/brent-weekly_pandas.xlsx
+
+Converting files in folder '../src/oil-prices' from csv to json and xlsx is complete.
+
+# 1
+name of file:  population.csv
+path_join:     ../src/population/population.csv
+json filename: ../src/population/population.json
+xlsx filename: ../src/population/population_pandas.xlsx
+
+Converting files in folder '../src/population' from csv to json and xlsx is complete.
+
+# 1
+name of file:  ppp-gdp.csv
+path_join:     ../src/ppp/ppp-gdp.csv
+json filename: ../src/ppp/ppp-gdp.json
+xlsx filename: ../src/ppp/ppp-gdp_pandas.xlsx
+
+Converting files in folder '../src/ppp' from csv to json and xlsx is complete.
+
+The process of converting all files from csv to json and xlsx is complete.
+
+
+Process finished with exit code 0
