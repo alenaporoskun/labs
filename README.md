@@ -1,5 +1,6 @@
-# labs
+# labs | лабораторні роботи
 
-* MATLAB
+* Python
 * SQL
-* 
+* MATLAB
+* Exсel
