@@ -6,3 +6,5 @@
 * Exсel
 * С++
 * Tableau
+  
++ presentations | презентації
