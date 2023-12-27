@@ -1,0 +1,10 @@
+README.md
+setup.py
+console_assistant/__init__.py
+console_assistant/file_sorter.py
+console_assistant/main.py
+console_assistant.egg-info/PKG-INFO
+console_assistant.egg-info/SOURCES.txt
+console_assistant.egg-info/dependency_links.txt
+console_assistant.egg-info/entry_points.txt
+console_assistant.egg-info/top_level.txt
